@@ -56,15 +56,22 @@
   	</delete>
   	
   	<select id="searchMember" resultType="MemberDTO" parameterType="MemberSearchDTO">
-  		SELECT ID FROM MEMBER 
-  		WHERE ID LIKE '%'||#{keyword}||'%' AND PUBLICS != 0 AND ID NOT IN (
-  			SELECT IGNORED FROM IGNORE WHERE IGNORING = #{id}
+  		SELECT NICKNAME FROM MEMBER 
+  		WHERE NICKNAME LIKE '%'||#{keyword}||'%' AND PUBLICS != 0 AND NICKNAME NOT IN (
+  			SELECT IGNORED FROM IGNORE WHERE IGNORING = #{nickName}
+  		)
+  	</select>
+  	
+  	 <select id="searchMember2" resultType="MemberDTO" parameterType="MemberSearchDTO">
+  		SELECT NICKNAME FROM MEMBER 
+  		WHERE NICKNAME LIKE '%'||#{keyword}||'%' AND PUBLICS != 0 AND NICKNAME IN (
+  			SELECT IGNORED FROM IGNORE WHERE IGNORING = #{nickName}
   		)
   	</select>
   	
   	 <select id="didYouIgnore" resultType="IgnoreDTO" parameterType="MemberDTO">
   		SELECT IGNORED FROM IGNORE 
-  		WHERE IGNORING = #{id}
+  		WHERE IGNORING = #{nickName}
   	</select>
   	
   	<delete id="ignoreCancle" parameterType="IgnoreDTO">
