@@ -14,13 +14,13 @@
 		
 		<table id="igo">
 			<thead>
-				<th>아이디(차단x)</th>
+				<th>닉네임(차단x)</th>
 			</thead>
 			<tbody>
 				<c:forEach items="${list}" var="ar">
 				<tr>
-					<td><a>${ar.id}</a></td>
-					<td><button onclick="location.href='./ignore?ignored=${ar.id}'">차단하기</button></td>
+					<td><a>${ar.nickName}</a></td>
+					<td><button onclick="location.href='./ignore?ignored=${ar.nickName}'">차단하기</button></td>
 				</tr>			
 				</c:forEach>
 			</tbody>
@@ -28,13 +28,13 @@
 
 		<table id="igx">
 			<thead>
-				<th>아이디(내가 차단한 사람)</th>
+				<th>닉네임(내가 차단한 사람)</th>
 			</thead>
 			<tbody>
 				<c:forEach items="${ignore}" var="ar">
 				<tr>
-					<td><a>${ar.ignored}</a></td>
-					<td><button onclick="location.href='./ignoreCancle?ignored=${ar.ignored}'">차단해제</button></td>
+					<td><a>${ar.nickName}</a></td>
+					<td><button onclick="location.href='./ignoreCancle?ignored=${ar.nickName}'">차단해제</button></td>
 				</tr>			
 				</c:forEach>
 			</tbody>

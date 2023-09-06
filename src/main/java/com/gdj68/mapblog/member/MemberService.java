@@ -92,6 +92,11 @@ public class MemberService {
 	public List<MemberDTO> searchMember(MemberSearchDTO memberSearchDTO) {
 		return memberDAO.searchMember(memberSearchDTO);	
 	}
+	
+	public List<MemberDTO> searchMember2(MemberSearchDTO memberSearchDTO) {
+		return memberDAO.searchMember2(memberSearchDTO);	
+	}
+	
 
 	public List<IgnoreDTO> didYouIgnore(MemberDTO memberDTO) {
 		return memberDAO.didYouIgnore(memberDTO);	
@@ -108,5 +113,4 @@ public class MemberService {
 	public int setAgree(AgreeDTO agreeDTO) {
 		return memberDAO.setAgree(agreeDTO);
 	}
-	
 }

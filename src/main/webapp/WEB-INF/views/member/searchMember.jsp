@@ -14,8 +14,8 @@
             <div>
                 <div>
                     <label>검색 카테고리</label><br>
-                    <input type="radio" id="p1" name="category" value="ID">
-                    <label for="p1">아이디</label>
+                    <input type="radio" id="p1" name="category" value="NICKNAME">
+                    <label for="p1">닉네임</label>
                     <input type="radio" id="p2" name="category" value="URL" disabled>
                     <label for="p2">개인 URL</label><br>
                 </div>

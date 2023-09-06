@@ -5,6 +5,7 @@ public class MemberSearchDTO {
 	private String category;
 	private String keyword;
 	private String id;
+	private String nickName;
 	
 	public String getCategory() {
 		return category;
@@ -24,5 +25,10 @@ public class MemberSearchDTO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+	public String getNickName() {
+		return nickName;
+	}
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
 }

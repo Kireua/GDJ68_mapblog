@@ -64,6 +64,10 @@ public class MemberDAO {
 	public List<MemberDTO> searchMember(MemberSearchDTO memberSearchDTO) {
 		return sqlSession.selectList(NAMESPACE+"searchMember", memberSearchDTO);
 	}
+	
+	public List<MemberDTO> searchMember2(MemberSearchDTO memberSearchDTO) {
+		return sqlSession.selectList(NAMESPACE+"searchMember2", memberSearchDTO);
+	}
 
 	public List<IgnoreDTO> didYouIgnore(MemberDTO memberDTO) {
 		return sqlSession.selectList(NAMESPACE+"didYouIgnore", memberDTO);

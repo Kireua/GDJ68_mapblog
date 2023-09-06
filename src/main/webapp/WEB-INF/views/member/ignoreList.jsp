@@ -12,7 +12,7 @@
 	
 		<table>
 			<thead>
-				<th>내가 차단한 사람(아이디)</th>
+				<th>내가 차단한 사람(닉네임)</th>
 			</thead>
 			<tbody>
 				<c:forEach items="${ignore}" var="ar">

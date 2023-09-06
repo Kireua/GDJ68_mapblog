@@ -3,6 +3,7 @@ package com.gdj68.mapblog.member;
 import java.util.List;
 import java.util.Random;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -73,10 +74,10 @@ public class MemberController {
 		if(memberFileDTO != null) {
 			session.setAttribute("memberFile", memberFileDTO);
 		}
-
+		
 		String userUrl = memberDTO.getUrl();
 		
-		return "redirect:../feed/list/"+userUrl;
+		return "redirect:../feed/list/"+userUrl;	
 	}
 	
 	// 로그아웃
@@ -241,13 +242,13 @@ public class MemberController {
 	public String searchMember(Model model, MemberSearchDTO memberSearchDTO, HttpSession session) throws Exception{
 		
 		MemberDTO uDTO = (MemberDTO)session.getAttribute("member");
-		String uID = uDTO.getId();
-		memberSearchDTO.setId(uID);
+		String uNN = uDTO.getNickName();
+		memberSearchDTO.setNickName(uNN);
 		// ml은 차단하지 않은 멤버 리스트
 		List<MemberDTO> ml = memberService.searchMember(memberSearchDTO);
 		
 		// il은 차단한 멤버 리스트
-		List<IgnoreDTO> il = memberService.didYouIgnore(uDTO);
+		List<MemberDTO> il = memberService.searchMember2(memberSearchDTO);
 		
 		model.addAttribute("list", ml);
 		model.addAttribute("ignore", il);
@@ -260,11 +261,11 @@ public class MemberController {
 	public String ignore(String ignored, HttpSession session) throws Exception{
 		
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
-		String uID = memberDTO.getId();
+		String uNN = memberDTO.getNickName();
 		
 		IgnoreDTO ignoreDTO = new IgnoreDTO();
 		ignoreDTO.setIgnored(ignored);
-		ignoreDTO.setIgnoring(uID);
+		ignoreDTO.setIgnoring(uNN);
 		memberService.ignore(ignoreDTO);
 		
 		return "redirect:./searchIgnore";
@@ -275,11 +276,11 @@ public class MemberController {
 	public String ignoreCancle(String ignored, HttpSession session) throws Exception{
 		
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
-		String uID = memberDTO.getId();
+		String uNN = memberDTO.getNickName();
 		
 		IgnoreDTO ignoreDTO = new IgnoreDTO();
 		ignoreDTO.setIgnored(ignored);
-		ignoreDTO.setIgnoring(uID);
+		ignoreDTO.setIgnoring(uNN);
 		memberService.ignoreCancle(ignoreDTO);
 		
 		return "redirect:./searchIgnore";
