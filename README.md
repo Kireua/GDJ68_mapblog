@@ -18,7 +18,7 @@
 
 ---
 
-- **Email** | akrhkdx**@gmail.com**
+- **Email** | ak***@gmail.com
 - **Github** | **[https://github.com/eun-seong](https://github.com/Kireua)**
 - 
 
